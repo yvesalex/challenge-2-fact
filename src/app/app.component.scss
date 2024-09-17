@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} 
+
+body{
+  position: relative;
+  margin: 0px;
+  height: 400px !important;
+  width: 100%;
+  background-color: grey;
+}
+
+.card{
+    position: absolute;
+    top: 50%;
+    margin-left: auto;
+    width: fit-content;
+    max-width: 80%;
+    padding: 8px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
