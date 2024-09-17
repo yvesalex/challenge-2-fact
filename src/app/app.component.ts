@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Fact } from './models/fact';
-import { CatsService } from './services/cats.service';
 import { AsyncPipe, NgIf } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +11,16 @@ import { AsyncPipe, NgIf } from '@angular/common';
 })
 export class AppComponent {
   title = 'Fact';
-  public cat$: Observable<Fact> = new Observable();
+  public fact: any;
 
-  constructor(private catsService: CatsService){}
-
+  private url = `https://catfact.ninja/fact`;
+    
+  constructor(private http: HttpClient) {
+  }
+  
   ngOnInit() {
-    this.cat$ = this.catsService.getRandomCat();
+    this.http.get(this.url).subscribe(
+      (res) => this.fact = res
+    );
   }
 }
